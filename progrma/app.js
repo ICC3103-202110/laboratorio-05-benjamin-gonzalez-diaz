@@ -5,7 +5,7 @@ var figlet = require('figlet');
 const chalk = require('chalk');
 // TE PONE UNA TABLA
 const { printTable } = require('console-table-printer');
-figlet(('Lab 5 - CALCULADORA de impuestos'), function(err, data) {
+figlet(('Lab 5 - TIP  CALCULATOR'), function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
