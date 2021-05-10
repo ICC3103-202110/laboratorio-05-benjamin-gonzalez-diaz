@@ -8,3 +8,8 @@ const testCases = [
 
 //print
 printTable(testCases);
+
+const chalk = require('chalk');
+
+// style a string
+console.log(chalk.red('this is red'));

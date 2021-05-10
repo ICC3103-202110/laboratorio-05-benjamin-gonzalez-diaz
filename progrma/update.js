@@ -12,7 +12,7 @@ figlet('Hello World!!', function(err, data) {
 const chalk = require('chalk');
 
 // style a string
-console.log(chalk.blue('Hello !'));
+console.log(chalk.red('Hello !'));
 const { printTable } = require('console-table-printer');
 
 //Create a table
