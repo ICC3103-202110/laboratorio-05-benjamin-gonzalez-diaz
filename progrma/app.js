@@ -1,11 +1,12 @@
 const {GetTitle} = require('./view')
-
+const {update} = require('./update')
 function Execute(state,update,view){
   console.clear()
-  (GetTitle)
+  console.log(GetTitle)
 
 }
 (Execute(1,1,1))
+
 /*
 var prompt = require('prompt-sync')({sigint:true});  
 // TE PONE UNA LETRA MAS GRANDE

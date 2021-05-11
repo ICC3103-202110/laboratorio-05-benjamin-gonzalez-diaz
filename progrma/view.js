@@ -1,22 +1,22 @@
 
-// TE PONE UNA LETRA MAS GRANDE
 const figlet = require('figlet');
 const chalk = require('chalk');  
 
 function GetTitle(){
-      return chalk.green(
-        figlet.textSync('Lab 5 - TIP  CALCULATOR',
-        {
-          horizontalLayout: 'full',
-          font: 'Nancyj-Underlined'
-        }
-        )
-      )
+  return chalk.green(
+    figlet.textSync('Lab 5 - TIP  CALCULATOR',
+      {
+        horizontalLayout: 'full',
+        font: 'Nancyj-Underlined'
+      }
+    )
+  )
 }
 
 module.exports = {
   GetTitle
 }
+
 //var prompt = require('prompt-sync')({sigint:true});  
 // style a string
 //console.log(chalk.red('this is red'));
