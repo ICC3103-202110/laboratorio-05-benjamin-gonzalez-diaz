@@ -1,4 +1,13 @@
+const {GetTitle} = require('./view')
 
+function Execute(state,update,view){
+  console.clear()
+  (GetTitle)
+
+}
+(Execute(1,1,1))
+/*
+var prompt = require('prompt-sync')({sigint:true});  
 // TE PONE UNA LETRA MAS GRANDE
 var figlet = require('figlet');
 // TE PONE COLOR A LAS LETRAS
@@ -14,11 +23,11 @@ figlet(('Lab 5 - TIP  CALCULATOR'), function(err, data) {
     console.log(data)
 });
 
-
+*/
 
 // style a string
 //console.log(chalk.red('Hello !'));
-
+/*
 //Create a table
 const testCases = [
   { index: 3, text: 'I would like some gelb bananen bitte', value: 100 },
@@ -27,3 +36,9 @@ const testCases = [
 
 //print
 printTable(testCases);
+
+let bill = prompt('bill amount?: ','0');
+let porcentual = prompt('tip?: ');
+var nbill = parseInt(bill);
+var nporcentual = parseFloat(porcentual);
+*/
