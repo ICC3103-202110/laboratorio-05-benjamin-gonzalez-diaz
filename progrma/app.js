@@ -1,8 +1,8 @@
-const {GetTitle} = require('./view')
+const {getTitle} = require('./view')
 const {update} = require('./update')
 function Execute(state,update,view){
-  console.clear()
-  console.log(GetTitle)
+  console.clear();
+  getTitle()
 
 }
 (Execute(1,1,1))

@@ -2,19 +2,31 @@
 const figlet = require('figlet');
 const chalk = require('chalk');  
 
-function GetTitle(){
-  return chalk.green(
-    figlet.textSync('Lab 5 - TIP  CALCULATOR',
+function getTitle(){
+  return chalk.cyan(
+    figlet.textSync('TIP CALCULATOR',
       {
         horizontalLayout: 'full',
-        font: 'Nancyj-Underlined'
+        font: 'Sub-Zero'
       }
     )
   )
 }
+function Table(tipe){
+  const {valor} = tipe;
+  return [
+    {Valor: valor}
+  ]
+}
 
+function views(amount){
+  return {
+      title: getTitle(),
+      table: Table(amount)
+  }
+}
 module.exports = {
-  GetTitle
+  views,
 }
 
 //var prompt = require('prompt-sync')({sigint:true});  
