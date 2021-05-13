@@ -1,10 +1,11 @@
-const {getTitle,Tabla} = require('./view')
+const {getTitle,Tabla,EmptyTable} = require('./view')
 
 function Execute(state,update,view){
-  console.clear();
   console.log(getTitle());
-  (Tabla());
-
+  EmptyTable();
+  while (true){
+    (Tabla());
+  }
 }
 module.exports = Execute
 

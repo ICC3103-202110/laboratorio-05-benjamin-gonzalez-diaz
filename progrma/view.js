@@ -13,18 +13,26 @@ function getTitle(){
     )
   )
 }
+function EmptyTable(){
+  const tableview = [
+    {bill_amount: 0,'tip (%)': chalk.green(0 +'%'), tip: chalk.yellow(0*0/100), total: chalk.cyan(0+0*0/100)}
+  ]
+  printTable(tableview);
+}
 function Tabla(){
   let bill = prompt('bill amount?: ','0');
   let porcentual = prompt('tip?: ');
   var nbill = parseInt(bill);
   var nporcentual = parseFloat(porcentual);
-  const testCases = [
+  const table = [
     { bill_amount: bill, 'tip (%)': chalk.green(porcentual +'%'), tip: chalk.yellow(nbill*nporcentual/100), total: chalk.cyan(nbill+nbill*nporcentual/100) },
   ];
-  printTable(testCases);
+  printTable(table);
 }
 module.exports = {
-  getTitle,Tabla
+  getTitle,
+  Tabla,
+  EmptyTable
 }
 
 //var prompt = require('prompt-sync')({sigint:true});  
