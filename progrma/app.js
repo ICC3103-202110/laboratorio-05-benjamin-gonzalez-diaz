@@ -1,11 +1,12 @@
-const {getTitle} = require('./view')
-const {update} = require('./update')
+const {getTitle,Tabla} = require('./view')
+
 function Execute(state,update,view){
   console.clear();
-  getTitle()
+  console.log(getTitle());
+  (Tabla());
 
 }
-(Execute(1,1,1))
+module.exports = Execute
 
 /*
 var prompt = require('prompt-sync')({sigint:true});  

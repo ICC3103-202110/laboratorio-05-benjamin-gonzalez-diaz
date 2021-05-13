@@ -1,6 +1,7 @@
-
+var prompt = require('prompt-sync')({sigint:true});  
 const figlet = require('figlet');
 const chalk = require('chalk');  
+const { printTable } = require('console-table-printer');
 
 function getTitle(){
   return chalk.cyan(
@@ -12,21 +13,18 @@ function getTitle(){
     )
   )
 }
-function Table(tipe){
-  const {valor} = tipe;
-  return [
-    {Valor: valor}
-  ]
-}
-
-function views(amount){
-  return {
-      title: getTitle(),
-      table: Table(amount)
-  }
+function Tabla(){
+  let bill = prompt('bill amount?: ','0');
+  let porcentual = prompt('tip?: ');
+  var nbill = parseInt(bill);
+  var nporcentual = parseFloat(porcentual);
+  const testCases = [
+    { bill_amount: bill, 'tip (%)': chalk.green(porcentual +'%'), tip: chalk.yellow(nbill*nporcentual/100), total: chalk.cyan(nbill+nbill*nporcentual/100) },
+  ];
+  printTable(testCases);
 }
 module.exports = {
-  views,
+  getTitle,Tabla
 }
 
 //var prompt = require('prompt-sync')({sigint:true});  
