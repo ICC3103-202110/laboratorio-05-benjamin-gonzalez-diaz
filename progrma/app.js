@@ -1,11 +1,13 @@
-const {getTitle,Tabla,EmptyTable} = require('./view')
+const {getTitle} = require('./view')
+const {ValueQuestion} = require('./view')
+const {printTable} = require('console-table-printer')
 
 function Execute(state,update,view){
-  console.log(getTitle());
-  EmptyTable();
-  while (true){
-    (Tabla());
-  }
+  const {question, actualView} = state
+  const {title, table} = actualView
+  console.clear()
+  console.log(title)
+  printTable(table)
 }
 module.exports = Execute
 

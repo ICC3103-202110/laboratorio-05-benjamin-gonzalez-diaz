@@ -1,6 +1,7 @@
 var prompt = require('prompt-sync')({sigint:true});  
 const figlet = require('figlet');
 const chalk = require('chalk');  
+const inquirer = require('inquirer')
 const { printTable } = require('console-table-printer');
 
 function getTitle(){
@@ -29,12 +30,52 @@ function Tabla(){
   ];
   printTable(table);
 }
+function getQuestion(question){
+    const {billAmount,porcentual} = question
+    let nbill = parseInt(billAmount);
+    let nporcentual = parseFloat(porcentual)
+    return [
+      {
+        'bill amount': billAmount, 'tip (%)':porcentual,'tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
+      }
+    ]
+}
+function ValueQuestion(question){
+  const {billAmount,porcentual} = question
+  const message = 'bill amount or tips'
+  return inquirer.prompt([
+    {
+      name: 'billAmount',
+      type: 'billAmount',
+      message: message,
+      default: billAmount,
+    },
+    {
+      name: 'porcentual',
+      type: 'porcentual',
+      message: message,
+      default: porcentual
+    }
+  ])
+}
+function view(model){
+  return {
+    title: getTitle(),
+    table: getQuestion(model)
+  }
+}
+module.exports = {
+  EmptyTable,
+  view,
+  ValueQuestion
+}
+/*
 module.exports = {
   getTitle,
   Tabla,
   EmptyTable
 }
-
+*/
 //var prompt = require('prompt-sync')({sigint:true});  
 // style a string
 //console.log(chalk.red('this is red'));

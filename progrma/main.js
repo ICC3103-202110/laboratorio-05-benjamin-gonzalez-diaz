@@ -1,7 +1,8 @@
-const {models} = require('./question');
-const {views} = require('./view');
+const {initQuestion} = require('./question');
+const {view} = require('./view');
 const app = require('./app');
 const status = {
-    actualView: models
+    question: initQuestion,
+    actualView: view(initQuestion)
 }
-app(status,true,true)
+app(status,true,view)
