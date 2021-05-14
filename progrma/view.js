@@ -5,11 +5,19 @@ const inquirer = require('inquirer')
 const { printTable } = require('console-table-printer');
 
 function getTitle(){
+  let azar = Math.random()
+  let mess = 'epic'
+  if(azar > 0 && azar <= 0.5){
+    mess = 'Colossal'
+  }
+  if(azar > 0.5 && azar <= 1){
+    mess = 'Epic'
+  }
   return chalk.red(
     figlet.textSync('TIP  CALCULATOR',
       {
         horizontalLayout: 'full',
-        font: 'epic'//Colossal'
+        font: mess//Colossal'
       }
     )
   )
@@ -20,32 +28,14 @@ function EmptyTable(){
   ]
   printTable(tableview);
 }
-function Tabla(){
-  let bill = prompt('bill amount?: ','0');
-  let porcentual = prompt('tip?: ');
-  var nbill = parseInt(bill);
-  var nporcentual = parseFloat(porcentual);
-  const table = [
-    { bill_amount: bill, 'tip (%)': chalk.green(porcentual +'%'), tip: chalk.yellow(nbill*nporcentual/100), total: chalk.cyan(nbill+nbill*nporcentual/100) },
-  ];
-  printTable(table);
-}
-function getQuestion2(BA,P){
-  let nbill = parseInt(BA);
-  let nporcentual = parseFloat(P)
-  return [
-    {
-      'bill amount': BA, 'tip (%)':P,'tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
-    }
-  ]
-}
+
 function getQuestion(question){
     const {billAmount,porcentual} = question
     let nbill = parseInt(billAmount);
     let nporcentual = parseFloat(porcentual)
     return [
       {
-        'bill amount': billAmount, 'tip (%)':porcentual,'tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
+        'bill amount': billAmount, 'tip (%)':porcentual+ '%','tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
       }
     ]
 }
@@ -59,21 +49,27 @@ function ValueQuestion(question){
       type: 'number',
       message: message,
       default: billAmount,
-      /*
+      
       validate: function(value){
         if(value >= 0){
             return true
         } else {
-            return 'ingrese un numero > 0'
+            return 0
         }
     }
-    */
     },
     {
       name: 'porcentual',
       type: 'number',
       message: message2,
-      default: porcentual
+      default: porcentual,
+      validate: function(value){
+        if(value != 0){
+            return true
+        } else {
+            return ''
+        }
+    }
     }
   ])
 }
@@ -87,7 +83,6 @@ module.exports = {
   EmptyTable,
   view,
   ValueQuestion,
-  getQuestion2
 }
 /*
 module.exports = {
