@@ -6,18 +6,27 @@ const { printTable } = require('console-table-printer');
 
 function getTitle(){
   let azar = Math.random()
-  let mess = 'epic'
-  if(azar > 0 && azar <= 0.5){
+  let mess = 'Banner'
+  if(azar > 0 && azar <= 0.2){
     mess = 'Colossal'
   }
-  if(azar > 0.5 && azar <= 1){
+  if(azar > 0.2 && azar <= 0.4){
     mess = 'Epic'
   }
-  return chalk.red(
-    figlet.textSync('TIP  CALCULATOR',
+  if(azar > 0.4 && azar <= 0.6){
+    mess = 'Banner'
+  }
+  if(azar > 0.6 && azar <= 0.8){
+    mess = 'Big Money-ne'
+  }
+  if(azar >0.8 && azar <= 1){
+    mess ='Big Money-sw'
+  }
+  return chalk.greenBright(
+    figlet.textSync('TIP - CALCULATOR',
       {
         horizontalLayout: 'full',
-        font: mess//Colossal'
+        font: mess
       }
     )
   )
