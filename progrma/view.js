@@ -30,6 +30,15 @@ function Tabla(){
   ];
   printTable(table);
 }
+function getQuestion2(BA,P){
+  let nbill = parseInt(BA);
+  let nporcentual = parseFloat(P)
+  return [
+    {
+      'bill amount': BA, 'tip (%)':P,'tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
+    }
+  ]
+}
 function getQuestion(question){
     const {billAmount,porcentual} = question
     let nbill = parseInt(billAmount);
@@ -42,7 +51,8 @@ function getQuestion(question){
 }
 function ValueQuestion(question){
   const {billAmount,porcentual} = question
-  const message = 'bill amount or tips'
+  const message = 'bill amount'
+  const message2 ='tip'
   return inquirer.prompt([
     {
       name: 'billAmount',
@@ -53,7 +63,7 @@ function ValueQuestion(question){
     {
       name: 'porcentual',
       type: 'porcentual',
-      message: message,
+      message: message2,
       default: porcentual
     }
   ])
@@ -67,7 +77,8 @@ function view(model){
 module.exports = {
   EmptyTable,
   view,
-  ValueQuestion
+  ValueQuestion,
+  getQuestion2
 }
 /*
 module.exports = {

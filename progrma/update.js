@@ -1,9 +1,37 @@
+
+function update(billAmount,porcentual,Question){
+  const {billAmount,porcentual} = Question
+  return {
+    ...initQuestion,
+    billAmount: billAmount,
+    porcentual: porcentual
+  }
+}
+module.exports = {
+  update
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 var figlet = require('figlet');
- 
-
-
 const chalk = require('chalk');
-
 // style a string
 console.log(chalk.red('Hello !'));
 const { printTable } = require('console-table-printer');
@@ -16,3 +44,4 @@ const testCases = [
 
 //print
 printTable(testCases);
+*/

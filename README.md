@@ -5,7 +5,7 @@ en la carpeta progrma (debio haberse llamado program) se encuentran los codigos
 
 en la carpeta, el archivo main.js es el principal
 
-se debe descargar las siguientes librerias(usando npm init y luego npm install) lo siguiente en la carpeta progrma:
+se debe descargar las siguientes librerias(usando npm init y luego npm install) la carpeta progrma:
     "chalk",
     "console-table-printer",
     "figlet",
