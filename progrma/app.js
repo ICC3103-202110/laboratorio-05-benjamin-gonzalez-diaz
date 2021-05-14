@@ -1,15 +1,27 @@
 const {getTitle} = require('./view')
 const {ValueQuestion,getQuestion2} = require('./view')
 const {printTable} = require('console-table-printer')
+var prompt = require('prompt-sync')({sigint:true}); 
 
 async function Execute(state,update,view){
-  const {question, actualView} = state
-  const {title, table} = actualView
-  console.clear()
-  console.log(title)
-  printTable(table)
-  const {billAmount,porcentual} = await ValueQuestion(question)
-  printTable(getQuestion2(billAmount,porcentual))
+  //const {question, actualView} = state
+  //const {title, table} = actualView
+  //console.log(title)
+  //printTable(table)
+  while(true){
+    const {question, actualView} = state
+    const {title, table} = actualView
+    console.log(title)
+    printTable(table)
+    const {billAmount,porcentual} = await ValueQuestion(question)
+    const updateModel = update(billAmount,porcentual,question)
+    state = {
+      ...state,
+      question: updateModel,
+      actualView: view(updateModel)
+    }
+
+  }
 }
 module.exports = Execute
 

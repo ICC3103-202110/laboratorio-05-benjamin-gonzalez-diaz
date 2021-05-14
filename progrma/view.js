@@ -5,11 +5,11 @@ const inquirer = require('inquirer')
 const { printTable } = require('console-table-printer');
 
 function getTitle(){
-  return chalk.cyan(
-    figlet.textSync('TIP CALCULATOR',
+  return chalk.red(
+    figlet.textSync('TIP  CALCULATOR',
       {
         horizontalLayout: 'full',
-        font: 'Sub-Zero'
+        font: 'epic'//Colossal'
       }
     )
   )
@@ -56,13 +56,22 @@ function ValueQuestion(question){
   return inquirer.prompt([
     {
       name: 'billAmount',
-      type: 'billAmount',
+      type: 'number',
       message: message,
       default: billAmount,
+      /*
+      validate: function(value){
+        if(value >= 0){
+            return true
+        } else {
+            return 'ingrese un numero > 0'
+        }
+    }
+    */
     },
     {
       name: 'porcentual',
-      type: 'porcentual',
+      type: 'number',
       message: message2,
       default: porcentual
     }

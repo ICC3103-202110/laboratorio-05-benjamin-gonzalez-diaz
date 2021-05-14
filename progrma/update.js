@@ -1,8 +1,7 @@
 
 function update(billAmount,porcentual,Question){
-  const {billAmount,porcentual} = Question
   return {
-    ...initQuestion,
+    ...Question,
     billAmount: billAmount,
     porcentual: porcentual
   }
