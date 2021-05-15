@@ -19,7 +19,7 @@ function getTitle(){
   if(azar > 0.6 && azar <= 0.8){
     mess = 'Big Money-ne'
   }
-  if(azar >0.8 && azar <= 1){
+  if(azar > 0.8 && azar <= 1){
     mess ='Big Money-sw'
   }
   return chalk.greenBright(
@@ -44,7 +44,7 @@ function getQuestion(question){
     let nporcentual = parseFloat(porcentual)
     return [
       {
-        'bill amount': billAmount, 'tip (%)':porcentual+ '%','tip':chalk.yellow(nbill*nporcentual/100),'total':chalk.cyan(nbill+nbill*nporcentual/100)
+        'bill amount': '$'+billAmount, 'tip (%)':porcentual+ '%','tip':'$'+chalk.yellow(nbill*nporcentual/100),'total':'$'+chalk.cyan(nbill+nbill*nporcentual/100)
       }
     ]
 }
@@ -93,24 +93,3 @@ module.exports = {
   view,
   ValueQuestion,
 }
-/*
-module.exports = {
-  getTitle,
-  Tabla,
-  EmptyTable
-}
-*/
-//var prompt = require('prompt-sync')({sigint:true});  
-// style a string
-//console.log(chalk.red('this is red'));
-//Create a table
-/*
-let bill = prompt('bill amount?: ','0');
-let porcentual = prompt('tip?: ');
-var nbill = parseInt(bill);
-var nporcentual = parseFloat(porcentual);
-const testCases = [
-  { bill_amount: bill, 'tip (%)': chalk.green(porcentual +'%'), tip: chalk.yellow(nbill*nporcentual/100), total: chalk.cyan(nbill+nbill*nporcentual/100) },
-];
-printTable(testCases);
-*/
