@@ -4,10 +4,6 @@ const {printTable} = require('console-table-printer')
 var prompt = require('prompt-sync')({sigint:true}); 
 
 async function Execute(state,update,view){
-  //const {question, actualView} = state
-  //const {title, table} = actualView
-  //console.log(title)
-  //printTable(table)
   while(true){
     const {question, actualView} = state
     const {title, table} = actualView
